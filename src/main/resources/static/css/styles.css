@@ -1,0 +1,69 @@
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.form-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1.2em;
+    color: #495057;
+    margin-right: 10px;
+}
+
+.form-control {
+    width: auto;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.author-group, .blueprint-group {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.blueprint-group {
+    margin-right: 0;
+}
+
+canvas {
+    border: 2px solid black;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+#saveButton {
+    background-color: #28a745;
+    color: white;
+    margin-right: 50px;
+}
+
+#deleteButton {
+    background-color: #f52cf5;
+    color: white;
+    margin-left: 50px;
+}
+
+#createButton {
+    background-color: #dc3545;
+    color: white;
+}
+
+.button-container {
+    text-align: left;
+    margin-top: 20px;
+}

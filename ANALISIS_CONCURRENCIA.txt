@@ -1,0 +1,26 @@
+Parte III
+* ¿Qué condiciones de carrera se podrían presentar?
+    - Al crear un recurso si no se controla el acceso se pueden perder las peticiones.
+    - Al actualizar un recurso se podrían presentar condiciones de carrera al intentar modificar el mismo objeto.
+    - Al leer un recurso mientras este se modifica al mismo tiempo **(este se evitara solucionar puesto que afectaría gravemente el rendimiento).
+
+* ¿Cuales son las respectivas regiones críticas?
+    - El método addBlueprint() en BLueprintServices.
+    - El método updateBLueprint() en BlueprintServices.
+    - En BlueprintServices se esta inyectando la persistencia inMemoryBluePrintPersistence, esta clase contiene condieiciones de carrera en los siguientes
+      métodos.
+      - saveBlueprint()
+      - getBlueprint(), getAllBlueprints(), getBlueprintsByAuthor,  ** 
+      - updateBLueprint();
+
+* Soluciones
+    Teniendo en cuenta lo que se menciona en los criterios de evaluación se implementara una colección thread-safe, y se utilizaran
+    los metodos sincronicos que ofrece esta coleccion tanto para saveBlueprint() como para updateBLueprint(). Para las consultas se plantea evitar usar metodos
+    que bloqueen completamente la colección.
+
+    ConcurrentHashMap: Esta será la coleccion concurrente usada, que tiene el beneficio (como en la api de java menciona) de: todas las operaciones son a prueba de 
+    Sin embargo, a pesar de que todas las operaciones son a prueba de subprocesos, las operaciones de recuperación no implican bloqueo, y no hay ningún soporte para bloquear
+    toda la tabla de una manera que impida todo acceso.
+
+
+       
